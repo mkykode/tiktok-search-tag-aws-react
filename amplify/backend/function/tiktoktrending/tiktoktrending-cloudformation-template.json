@@ -63,7 +63,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-tiktoktagsearch-main-160706-deployment",
-					"S3Key": "amplify-builds/tiktoktrending-54427158556a37766b6a-build.zip"
+					"S3Key": "amplify-builds/tiktoktrending-4536356351637064556a-build.zip"
 				}
 			}
 		},
