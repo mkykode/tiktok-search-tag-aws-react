@@ -7,8 +7,8 @@ export default function Main() {
   return (
     <main
       sx={{
-        maxWidth: '80vw',
-        margin: '2rem auto'
+        maxWidth: '980px',
+        margin: '1rem auto'
       }}
     >
       <h1>Search Tik Tok Videos</h1>

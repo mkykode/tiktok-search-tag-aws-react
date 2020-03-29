@@ -16,7 +16,9 @@ Amplify Params - DO NOT EDIT */
 var express = require('express');
 var bodyParser = require('body-parser');
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
-const Nightmare = require('nightmare');
+// const Nightmare = require('nightmare');
+const TikTokScraper = require('tiktok-scraper');
+
 // declare a new express app
 var app = express();
 app.use(bodyParser.json());
@@ -36,47 +38,19 @@ app.use(function(req, res, next) {
  * Example get method *
  **********************/
 
-app.get('/trending', function(req, res) {
-  // let videosURLS = [
-  //   {
-  //     user: 'haileesteinfeld',
-  //     id: '6808335348301696261',
-  //     src:
-  //       'https://v19.muscdn.com/cd124f269c7483a64ae75ec22b366e73/5e804822/video/tos/useast2a/tos-useast2a-ve-0068c003/b5e8d0c91a5942588eb0c8d6eed7da53/?a=1233&br=982&bt=491&cr=0&cs=0&dr=0&ds=3&er=&l=202003290102480101890730972C539D18&lr=tiktok_m&qs=0&rc=anRxN2Rrb3Q0czMzOjczM0ApMzZoZDY5aDs2N2k2PDY5ZGdmYDU1cHFkLnJfLS01MTZzc14xMi0xMl9gX2FjYmBhMDQ6Yw%3D%3D&vl=&vr='
-  //   },
-  //   {
-  //     user: 'keemokazi',
-  //     id: '6809106720191810821',
-  //     src:
-  //       'https://v16.muscdn.com/dd12abdf539513da76a6491ceba3f3dd/5e80484b/video/tos/useast2a/tos-useast2a-ve-0068c004/49f4f2e6873d4fec86d8a89c31bd7e5c/?a=1233&br=2784&bt=1392&cr=0&cs=0&dr=0&ds=3&er=&l=202003290102480101890730972C539D18&lr=tiktok_m&qs=0&rc=MzVobWUzanZmczMzMzczM0ApZzplZzc1NDw6N2loN2k8NWdebS4vNjVhcHNfLS1fMTZzcy82MDAvYTI1MmMuNDJfMTM6Yw%3D%3D&vl=&vr='
-  //   }
-  // ];
-  const nightmare = Nightmare({ show: true });
-  const selector = '.video-feed-item-wrapper';
-  nightmare
-    .goto('https://www.tiktok.com/trending')
-    .wait('.video-feed-item-wrapper')
-    .evaluate(selector => {
-      // now we're executing inside the browser scope.
-      const data = [];
-      const nodes = document.querySelectorAll('.video-feed-item-wrapper');
-      for (let node of nodes) {
-        const pathArray = node.pathname.split('/');
-        data.push({
-          user: pathArray[1],
-          id: pathArray[3],
-          src: ''
-        });
-      }
-      return data;
-    }, selector) // <-- that's how you pass parameters from Node scope to browser scope
-    .then(videosURLS => {
-      res.json({ error: null, videosURLS });
-    })
-    .catch(error => {
-      res.json({ error, videosURLS: null });
-    })
-    .end();
+app.get('/trending', async function(req, res) {
+  try {
+    const videosUrls = await TikTokScraper.trend('', { number: 12 });
+    res.json({
+      error: null,
+      videosUrls
+    });
+  } catch (error) {
+    res.json({
+      error,
+      videosUrls: null
+    });
+  }
   // Add your code here
 });
 
