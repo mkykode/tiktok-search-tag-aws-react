@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/search",
+            "lambdaFunction": "tiktoksearch",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "searchfunction",
+    "apiName": "searchfunction",
+    "functionArns": [
+        {
+            "lambdaFunction": "tiktoksearch"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-tiktosearchvideos-main-181823-authRole",
+        "unAuthRoleName": "amplify-tiktosearchvideos-main-181823-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "tiktoksearch",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

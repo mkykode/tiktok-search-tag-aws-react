@@ -28,12 +28,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"trendingfunction",
+						"tiktoksearch",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"trendingfunction",
+									"tiktoksearch",
 									"-",
 									{
 										"Ref": "env"
@@ -63,7 +63,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-tiktosearchvideos-main-181823-deployment",
-					"S3Key": "amplify-builds/trendingfunction-71394a61724a4d684a42-build.zip"
+					"S3Key": "amplify-builds/tiktoksearch-6557495a38555243732f-build.zip"
 				}
 			}
 		},
@@ -73,12 +73,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"tiktosearchvideosLambdaRole4ef0d6e3",
+						"tiktosearchvideosLambdaRole914310af",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"tiktosearchvideosLambdaRole4ef0d6e3",
+									"tiktosearchvideosLambdaRole914310af",
 									"-",
 									{
 										"Ref": "env"

@@ -8,20 +8,24 @@ export default function Videos() {
   const [heading, setHeading] = useState('');
   useEffect(() => {
     async function getTrending() {
-      const {
-        error,
-        videosUrls: { collector }
-      } = await API.get('tiktok', '/trending');
+      try {
+        const {
+          error,
+          videosUrls: { collector }
+        } = await API.get('tiktok', '/trending');
+        setTrending(collector);
+        setError(error);
+        setHeading('trending');
+      } catch (error) {
+        setError(error);
+      }
       //   console.log(data);
-      setTrending(collector);
-      setError(error);
-      setHeading('trending');
     }
     getTrending();
   }, []);
 
   if (error !== null) {
-    return <Box>There is an issue getting trending videos.</Box>;
+    return <Box>There is an issue getting trending videos. Error:{error}</Box>;
   }
   return (
     <Fragment>

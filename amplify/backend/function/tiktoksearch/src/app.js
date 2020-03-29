@@ -6,19 +6,10 @@ or in the "license" file accompanying this file. This file is distributed on an 
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-/* Amplify Params - DO NOT EDIT
-You can access the following resource attributes as environment variables from your Lambda function
-var environment = process.env.ENV
-var region = process.env.REGION
-
-Amplify Params - DO NOT EDIT */
-
 var express = require('express');
 var bodyParser = require('body-parser');
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
-// const Nightmare = require('nightmare');
 const TikTokScraper = require('tiktok-scraper');
-
 // declare a new express app
 var app = express();
 app.use(bodyParser.json());
@@ -38,9 +29,30 @@ app.use(function(req, res, next) {
  * Example get method *
  **********************/
 
-app.get('/trending', async function(req, res) {
+app.get('/search', function(req, res) {
+  // Add your code here
+  res.json({ success: 'get call succeed!', url: req.url });
+});
+
+app.get('/search/*', function(req, res) {
+  // Add your code here
+  res.json({ success: 'get call succeed!', url: req.url });
+});
+
+/****************************
+ * Example post method *
+ ****************************/
+
+app.post('/search', function(req, res) {
+  res.json({ success: 'post call succeed!', url: req.url, body: req.body });
+});
+
+app.post('/search/:tag', async function(req, res) {
+  // Add your code here
+  // Add your code here
+  const { tag } = res.params;
   try {
-    const videosUrls = await TikTokScraper.trend('', { number: 12 });
+    const videosUrls = await TikTokScraper.hashtag(tag, { number: 12 });
     res.json({
       error: null,
       videosUrls
@@ -53,35 +65,16 @@ app.get('/trending', async function(req, res) {
   }
 });
 
-app.get('/trending/*', function(req, res) {
-  // Add your code here
-  res.json({ success: 'get call succeed!', url: req.url });
-});
-
-/****************************
- * Example post method *
- ****************************/
-
-app.post('/trending', function(req, res) {
-  // Add your code here
-  res.json({ success: 'post call succeed!', url: req.url, body: req.body });
-});
-
-app.post('/trending/*', function(req, res) {
-  // Add your code here
-  res.json({ success: 'post call succeed!', url: req.url, body: req.body });
-});
-
 /****************************
  * Example put method *
  ****************************/
 
-app.put('/trending', function(req, res) {
+app.put('/search', function(req, res) {
   // Add your code here
   res.json({ success: 'put call succeed!', url: req.url, body: req.body });
 });
 
-app.put('/trending/*', function(req, res) {
+app.put('/search/*', function(req, res) {
   // Add your code here
   res.json({ success: 'put call succeed!', url: req.url, body: req.body });
 });
@@ -90,12 +83,12 @@ app.put('/trending/*', function(req, res) {
  * Example delete method *
  ****************************/
 
-app.delete('/trending', function(req, res) {
+app.delete('/search', function(req, res) {
   // Add your code here
   res.json({ success: 'delete call succeed!', url: req.url });
 });
 
-app.delete('/trending/*', function(req, res) {
+app.delete('/search/*', function(req, res) {
   // Add your code here
   res.json({ success: 'delete call succeed!', url: req.url });
 });
