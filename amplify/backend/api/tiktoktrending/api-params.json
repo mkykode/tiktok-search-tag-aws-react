@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/trending",
+            "lambdaFunction": "tiktoktrending",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "tiktoktrending",
+    "apiName": "tiktoktrending",
+    "functionArns": [
+        {
+            "lambdaFunction": "tiktoktrending"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-tiktoktagsearch-main-160706-authRole",
+        "unAuthRoleName": "amplify-tiktoktagsearch-main-160706-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "tiktoktrending",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
