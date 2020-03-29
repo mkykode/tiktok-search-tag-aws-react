@@ -1,8 +1,15 @@
 {
     "paths": [
         {
-            "name": "/search",
+            "name": "/trending",
             "lambdaFunction": "tiktoktrending",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/search",
+            "lambdaFunction": "tiktoksearch",
             "privacy": {
                 "open": true
             }
@@ -13,6 +20,9 @@
     "functionArns": [
         {
             "lambdaFunction": "tiktoktrending"
+        },
+        {
+            "lambdaFunction": "tiktoksearch"
         }
     ],
     "privacy": {
@@ -25,6 +35,14 @@
         {
             "category": "function",
             "resourceName": "tiktoktrending",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "tiktoksearch",
             "attributes": [
                 "Name",
                 "Arn"

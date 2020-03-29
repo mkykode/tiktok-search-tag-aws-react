@@ -16,7 +16,6 @@ Amplify Params - DO NOT EDIT */
 var express = require('express');
 var bodyParser = require('body-parser');
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
-var puppeteer = require('puppeteer');
 
 // declare a new express app
 var app = express();
@@ -37,17 +36,9 @@ app.use(function(req, res, next) {
  * Example get method *
  **********************/
 
-app.get('/trending', async function(req, res) {
+app.get('/trending', function(req, res) {
   // Add your code here
-  const browser = await puppeteer.launch({ headless: false });
-  const page = await browser.newPage();
-  await page.goto('https://www.tiktok.com/trending');
-  await page.waitForSelector('.video-feed-item-wrapper');
-  const videoUrlsNodes = page.$$('.video-feed-item-wrapper');
-  console.log(videoUrlsNodes);
-
-  await browser.close();
-  res.json({ videoUrlsNodes, url: req.url });
+  res.json({ success: 'get call succeed!', url: req.url });
 });
 
 app.get('/trending/*', function(req, res) {
@@ -59,12 +50,12 @@ app.get('/trending/*', function(req, res) {
  * Example post method *
  ****************************/
 
-app.post('/search', function(req, res) {
+app.post('/trending', function(req, res) {
   // Add your code here
   res.json({ success: 'post call succeed!', url: req.url, body: req.body });
 });
 
-app.post('/search/*', function(req, res) {
+app.post('/trending/*', function(req, res) {
   // Add your code here
   res.json({ success: 'post call succeed!', url: req.url, body: req.body });
 });
