@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/trending",
+            "lambdaFunction": "trendingfunction",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "tiktok",
+    "apiName": "tiktok",
+    "functionArns": [
+        {
+            "lambdaFunction": "trendingfunction"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-tiktosearchvideos-main-181823-authRole",
+        "unAuthRoleName": "amplify-tiktosearchvideos-main-181823-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "trendingfunction",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

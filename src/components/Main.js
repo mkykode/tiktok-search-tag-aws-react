@@ -2,6 +2,7 @@
 import React from 'react';
 import Form from './Form';
 import { jsx } from 'theme-ui';
+import Videos from './Videos';
 export default function Main() {
   return (
     <main
@@ -12,6 +13,7 @@ export default function Main() {
     >
       <h1>Search Tik Tok Videos</h1>
       <Form />
+      <Videos />
     </main>
   );
 }
