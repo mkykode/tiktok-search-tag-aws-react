@@ -1,15 +1,15 @@
 {
     "main": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-tiktoktagsearch-main-160706-authRole",
-            "UnauthRoleArn": "arn:aws:iam::616353850259:role/amplify-tiktoktagsearch-main-160706-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::616353850259:role/amplify-tiktoktagsearch-main-160706-authRole",
+            "AuthRoleName": "amplify-tiktosearchvideos-main-181823-authRole",
+            "UnauthRoleArn": "arn:aws:iam::616353850259:role/amplify-tiktosearchvideos-main-181823-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::616353850259:role/amplify-tiktosearchvideos-main-181823-authRole",
             "Region": "us-west-2",
-            "DeploymentBucketName": "amplify-tiktoktagsearch-main-160706-deployment",
-            "UnauthRoleName": "amplify-tiktoktagsearch-main-160706-unauthRole",
-            "StackName": "amplify-tiktoktagsearch-main-160706",
-            "StackId": "arn:aws:cloudformation:us-west-2:616353850259:stack/amplify-tiktoktagsearch-main-160706/d8aafd10-7148-11ea-9078-0ac691da606e",
-            "AmplifyAppId": "d1k0mata34s45k"
+            "DeploymentBucketName": "amplify-tiktosearchvideos-main-181823-deployment",
+            "UnauthRoleName": "amplify-tiktosearchvideos-main-181823-unauthRole",
+            "StackName": "amplify-tiktosearchvideos-main-181823",
+            "StackId": "arn:aws:cloudformation:us-west-2:616353850259:stack/amplify-tiktosearchvideos-main-181823/30d29090-715b-11ea-bb18-0a9fa6069cfa",
+            "AmplifyAppId": "d3otorofcj06o"
         }
     }
 }
