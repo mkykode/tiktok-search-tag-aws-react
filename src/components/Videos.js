@@ -8,6 +8,7 @@ export default function Videos() {
   const [error, setError] = useState(null);
   const [heading, setHeading] = useState('');
   const [search, setSearch] = useState(undefined);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     async function getTrending() {
@@ -29,12 +30,13 @@ export default function Videos() {
 
   function onInputChange(e) {
     const value = e.target.value;
-    const sanitizedSearch = value.replace(' ', '');
+    const sanitizedSearch = value.replace(/[^a-zA-Z0-9]/g, '');
     setSearch(sanitizedSearch);
-    console.log(search);
   }
 
   async function getSearch() {
+    setTrending([]);
+    setHeading('');
     try {
       const {
         error,
@@ -46,6 +48,15 @@ export default function Videos() {
     } catch (error) {
       setError(error);
     }
+  }
+
+  function onPlaying(params) {
+    setPlaying(true);
+    console.log('video playing');
+  }
+  function onPause(params) {
+    setPlaying(false);
+    console.log('video not playing');
   }
 
   if (error !== null) {
@@ -103,7 +114,7 @@ export default function Videos() {
                 // p={2}
                 sx={{
                   wordBreak: 'break-all',
-                  flex: '1 30%',
+                  flex: ['1 100%', '1 50%', '1 30%'],
                   maxWidth: 'calc(980px - 66%)'
                 }}
                 key={video.id}
@@ -113,6 +124,8 @@ export default function Videos() {
                   poster={video.imageUrl}
                   width="auto"
                   height="550"
+                  onPlaying={onPlaying}
+                  onPause={onPause}
                   sx={{
                     maxWidth: '100%'
                   }}
