@@ -50,20 +50,27 @@ export default function Videos() {
     }
   }
 
-  function onPlaying(params) {
+  function onPlaying(e) {
     setPlaying(true);
+    // e.target.defaultPlaybackRate = 1;
     console.log('video playing');
   }
-  function onPause(params) {
+  function onPause(e) {
     setPlaying(false);
+    // e.target.defaultPlaybackRate = 1;
     console.log('video not playing');
   }
   function onHover(e) {
-      if (playing === true) {
-        e.target.defa
-
-      }
-
+    console.log('hovering video, playbackRate ', e.target.playbackRate);
+    if (playing === true) {
+      e.target.playbackRate = 0.5;
+    }
+  }
+  function onLeave(e) {
+    console.log('leaving video');
+    if (playing === true) {
+      e.target.playbackRate = 1;
+    }
   }
 
   if (error !== null) {
@@ -133,7 +140,8 @@ export default function Videos() {
                   height="550"
                   onPlaying={onPlaying}
                   onPause={onPause}
-                  onHover={onHover}
+                  onMouseEnter={onHover}
+                  onMouseLeave={onLeave}
                   sx={{
                     maxWidth: '100%'
                   }}
