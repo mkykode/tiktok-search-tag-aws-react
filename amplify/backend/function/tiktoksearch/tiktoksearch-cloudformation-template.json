@@ -63,7 +63,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-tiktosearchvideos-main-181823-deployment",
-					"S3Key": "amplify-builds/tiktoksearch-2f6e6d56364c312f6864-build.zip"
+					"S3Key": "amplify-builds/tiktoksearch-4334587754712f714862-build.zip"
 				}
 			}
 		},

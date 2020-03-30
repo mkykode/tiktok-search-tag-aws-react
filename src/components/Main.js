@@ -12,7 +12,6 @@ export default function Main() {
       }}
     >
       <h1>Search Tik Tok Videos</h1>
-      <Form />
       <Videos />
     </main>
   );

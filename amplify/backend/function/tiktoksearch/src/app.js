@@ -29,26 +29,7 @@ app.use(function(req, res, next) {
  * Example get method *
  **********************/
 
-app.get('/search', function(req, res) {
-  // Add your code here
-  res.json({ success: 'get call succeed!', url: req.url });
-});
-
-app.get('/search/*', function(req, res) {
-  // Add your code here
-  res.json({ success: 'get call succeed!', url: req.url });
-});
-
-/****************************
- * Example post method *
- ****************************/
-
-app.post('/search', function(req, res) {
-  res.json({ success: 'post call succeed!', url: req.url, body: req.body });
-});
-
-app.post('/search/:tag', async function(req, res) {
-  // Add your code here
+app.get('/search/:tag', async function(req, res) {
   // Add your code here
   const { tag } = req.params;
   try {
@@ -63,6 +44,26 @@ app.post('/search/:tag', async function(req, res) {
       videosUrls: null
     });
   }
+});
+
+app.get('/search/*', function(req, res) {
+  // Add your code here
+  res.json({ success: 'get call succeed!', url: req.url });
+});
+
+/****************************
+ * Example post method *
+ ****************************/
+
+app.post('/search', function(req, res) {
+  // Add your code here
+
+  res.json({ success: 'post call succeed!', url: req.url, body: req.body });
+});
+
+app.post('/search/*', function(req, res) {
+  // Add your code here
+  res.json({ success: 'post call succeed!', url: req.url, body: req.body });
 });
 
 /****************************
