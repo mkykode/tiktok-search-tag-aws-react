@@ -47,7 +47,7 @@ export default function Videos() {
       setError(error);
       setHeading(`#${search}`);
       if (collector.length <= 2) {
-        setLoadingText('Sorry, no videos with this search tag.');
+        setLoadingText('Sorry, no videos match this search tag.');
       }
     } catch (error) {
       setError(error);
