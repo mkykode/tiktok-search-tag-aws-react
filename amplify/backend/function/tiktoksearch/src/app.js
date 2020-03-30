@@ -33,7 +33,7 @@ app.get('/search/:tag', async function(req, res) {
   // Add your code here
   const { tag } = req.params;
   try {
-    const videosUrls = await TikTokScraper.hashtag(tag, { number: 24 });
+    const videosUrls = await TikTokScraper.hashtag(tag, { number: 18 });
     res.json({
       error: null,
       videosUrls

@@ -40,7 +40,7 @@ app.use(function(req, res, next) {
 
 app.get('/trending', async function(req, res) {
   try {
-    const videosUrls = await TikTokScraper.trend('', { number: 24 });
+    const videosUrls = await TikTokScraper.trend('', { number: 18 });
     res.json({
       error: null,
       videosUrls

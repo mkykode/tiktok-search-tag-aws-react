@@ -58,6 +58,13 @@ export default function Videos() {
     setPlaying(false);
     console.log('video not playing');
   }
+  function onHover(e) {
+      if (playing === true) {
+        e.target.defa
+
+      }
+
+  }
 
   if (error !== null) {
     return <Box>There is an issue getting trending videos. Error:{error}</Box>;
@@ -126,6 +133,7 @@ export default function Videos() {
                   height="550"
                   onPlaying={onPlaying}
                   onPause={onPause}
+                  onHover={onHover}
                   sx={{
                     maxWidth: '100%'
                   }}
@@ -137,7 +145,7 @@ export default function Videos() {
             );
           })
         ) : (
-          <p>Loading..</p>
+          <p>Loading...</p>
         )}
       </Flex>
     </Fragment>
