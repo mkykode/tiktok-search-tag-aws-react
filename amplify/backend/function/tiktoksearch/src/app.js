@@ -50,7 +50,7 @@ app.post('/search', function(req, res) {
 app.post('/search/:tag', async function(req, res) {
   // Add your code here
   // Add your code here
-  const { tag } = res.params;
+  const { tag } = req.params;
   try {
     const videosUrls = await TikTokScraper.hashtag(tag, { number: 12 });
     res.json({
