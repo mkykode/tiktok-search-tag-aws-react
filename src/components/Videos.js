@@ -9,6 +9,7 @@ export default function Videos() {
   const [heading, setHeading] = useState('');
   const [search, setSearch] = useState(undefined);
   const [playing, setPlaying] = useState(false);
+  const [loadingText, setLoadingText] = useState('Loading...');
 
   useEffect(() => {
     async function getTrending() {
@@ -45,6 +46,9 @@ export default function Videos() {
       setTrending(collector);
       setError(error);
       setHeading(`#${search}`);
+      if (collector.length <= 2) {
+        setLoadingText('Sorry, no videos with this search tag.');
+      }
     } catch (error) {
       setError(error);
     }
@@ -153,7 +157,7 @@ export default function Videos() {
             );
           })
         ) : (
-          <p>Loading...</p>
+          <p>{loadingText}</p>
         )}
       </Flex>
     </Fragment>
